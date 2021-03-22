@@ -69,8 +69,8 @@ while True:
             
         if war:
             if youtuber2_growth > youtuber1_growth * 3:
-                youtuber2_growth = trunc(youtuber2_growth / 2)
-                youtuber2_subscriber_count -= youtuber2_growth
+                youtuber2_subscriber_count -= trunc(youtuber2_growth / 1.5)
+                youtuber2_growth -= trunc(youtuber2_growth / 1.5)
             elif youtuber2_growth < youtuber1_growth / 2:
                 youtuber2_subscriber_count += trunc(youtuber2_growth / 1.4)
                 youtuber2_growth += trunc(youtuber2_growth / 1.4)
@@ -78,25 +78,25 @@ while True:
         difference = youtuber2_subscriber_count - youtuber1_subscriber_count
 
         if len(growth_dictionary["youtuber1"]) > 1 and int(growth_dictionary["youtuber1"][-2]) > int(growth_dictionary["youtuber1"][-1]):
-            youtuber1_additional_growth = trunc(youtuber1_growth / 8)
+            youtuber1_additional_growth = trunc(youtuber1_growth / 10)
             youtuber1_subscriber_count -= youtuber1_additional_growth
             youtuber1_growth -= youtuber1_additional_growth
         elif len(growth_dictionary["youtuber1"]) > 1 and int(growth_dictionary["youtuber1"][-2]) < int(growth_dictionary["youtuber1"][-1]):
-            youtuber1_additional_growth = trunc(youtuber1_growth / 8)
+            youtuber1_additional_growth = trunc(youtuber1_growth / 6)
             youtuber1_subscriber_count += youtuber1_additional_growth
             youtuber1_growth += youtuber1_additional_growth
 
         if len(growth_dictionary["youtuber2"]) > 1 and int(growth_dictionary["youtuber2"][-2]) > int(growth_dictionary["youtuber2"][-1]):
-            youtuber2_additional_growth = trunc(youtuber2_growth / 8)
+            youtuber2_additional_growth = trunc(youtuber2_growth / 10)
             youtuber2_subscriber_count -= youtuber2_additional_growth
             youtuber2_growth -= youtuber2_additional_growth
         elif len(growth_dictionary["youtuber2"]) > 1 and int(growth_dictionary["youtuber2"][-2]) < int(growth_dictionary["youtuber2"][-1]):
-            youtuber2_additional_growth = trunc(youtuber2_growth / 8)
+            youtuber2_additional_growth = trunc(youtuber2_growth / 6)
             youtuber2_subscriber_count += youtuber2_additional_growth
             youtuber2_growth += youtuber2_additional_growth
 
         if youtuber1_growth > difference and difference > -50000:
-            youtuber2_additional_growth = trunc(youtuber2_growth / 4)
+            youtuber2_additional_growth = randint(trunc(youtuber1_growth / 3), trunc(youtuber1_growth / 1.5))
             youtuber2_subscriber_count += youtuber2_additional_growth
             youtuber2_growth += youtuber2_additional_growth
 

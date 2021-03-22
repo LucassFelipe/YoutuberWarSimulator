@@ -17,7 +17,6 @@ while True:
     youtuber2_subscriber_count = int(input("Subscribers of the second youtuber: "))
     youtuber2_average_growth = int(input("Average growth of the second youtuber: "))
 
-    war = False
     day = 0
     difference = 0
     
@@ -42,10 +41,11 @@ while True:
             youtuber2_growth += youtuber2_additional_growth
             youtuber2_average_growth -= trunc(youtuber2_average_growth / 125)
             
-            if difference < 20000:
-                influencer_help = True if randint(1, 3) == 1 else False
-            else:
-                influencer_help = True if randint(1, 6) == 1 else False
+            if difference > 0:
+                if difference < 20000:
+                    influencer_help = True if randint(1, 3) == 1 else False
+                else:
+                    influencer_help = True if randint(1, 6) == 1 else False
         elif critical_difference:
             youtuber2_additional_growth = trunc(youtuber2_growth / uniform(0.1, 1.0))
             youtuber2_subscriber_count += youtuber2_additional_growth
@@ -54,7 +54,6 @@ while True:
             
             influencer_help = True if randint(1, 20) == 1 else False
         elif low_critical_difference:
-            war = True
             youtuber2_additional_growth = trunc(youtuber2_growth / uniform(0.1, 2.2))
             youtuber2_subscriber_count += youtuber2_additional_growth
             youtuber2_growth += youtuber2_additional_growth
@@ -69,7 +68,12 @@ while True:
             youtuber2_additional_growth = trunc(youtuber2_growth / uniform(0.2, 1.5))
             youtuber2_subscriber_count += youtuber2_additional_growth
             youtuber2_growth += youtuber2_additional_growth
-            
+        
+        if -100000 < difference < 1000000:
+            war = True
+        else:
+            war = False
+
         if war:
             if youtuber2_growth > youtuber1_growth * 3:
                 youtuber2_subscriber_count -= trunc(youtuber2_growth / 1.5)

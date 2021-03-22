@@ -40,14 +40,17 @@ while True:
             youtuber2_additional_growth = trunc(youtuber2_growth / uniform(0.1, 0.6))
             youtuber2_subscriber_count += youtuber2_additional_growth
             youtuber2_growth += youtuber2_additional_growth
-            youtuber2_average_growth -= trunc(youtuber2_average_growth / 100)
+            youtuber2_average_growth -= trunc(youtuber2_average_growth / 125)
             
-            influencer_help = True if randint(1, 6) == 1 else False
+            if difference < 20000:
+                influencer_help = True if randint(1, 3) == 1 else False
+            else:
+                influencer_help = True if randint(1, 6) == 1 else False
         elif critical_difference:
             youtuber2_additional_growth = trunc(youtuber2_growth / uniform(0.1, 1.0))
             youtuber2_subscriber_count += youtuber2_additional_growth
             youtuber2_growth += youtuber2_additional_growth
-            youtuber2_average_growth -= trunc(youtuber2_average_growth / 100)
+            youtuber2_average_growth -= trunc(youtuber2_average_growth / 125)
             
             influencer_help = True if randint(1, 20) == 1 else False
         elif low_critical_difference:
@@ -55,7 +58,7 @@ while True:
             youtuber2_additional_growth = trunc(youtuber2_growth / uniform(0.1, 2.2))
             youtuber2_subscriber_count += youtuber2_additional_growth
             youtuber2_growth += youtuber2_additional_growth
-            youtuber2_average_growth -= trunc(youtuber2_average_growth / 100)
+            youtuber2_average_growth -= trunc(youtuber2_average_growth / 125)
 
         if video_today:
             youtuber2_additional_growth = trunc(youtuber2_growth / uniform(0.5, 5))

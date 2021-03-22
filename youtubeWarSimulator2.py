@@ -21,7 +21,7 @@ while True:
     day = 0
     difference = 0
     
-    while difference > -200000:
+    while difference > -1000000:
         youtuber1_growth = randint(trunc(youtuber1_average_growth * 0.7), trunc(youtuber1_average_growth * 1.4))
 
         youtuber1_subscriber_count += youtuber1_growth
@@ -72,8 +72,8 @@ while True:
                 youtuber2_growth = trunc(youtuber2_growth / 2)
                 youtuber2_subscriber_count -= youtuber2_growth
             elif youtuber2_growth < youtuber1_growth / 2:
-                youtuber2_subscriber_count += trunc(youtuber2_growth / 2)
-                youtuber2_growth += trunc(youtuber2_growth / 2)
+                youtuber2_subscriber_count += trunc(youtuber2_growth / 1.4)
+                youtuber2_growth += trunc(youtuber2_growth / 1.4)
 
         difference = youtuber2_subscriber_count - youtuber1_subscriber_count
 

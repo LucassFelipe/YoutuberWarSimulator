@@ -29,12 +29,13 @@ while True:
 
         youtuber2_subscriber_count += youtuber2_growth
 
-        low_critical_difference = True if difference < 1000000 else False
-        critical_difference = True if difference < 300000 else False
-        high_critical_difference = True if difference < 100000 else False
+        low_critical_difference = True if -100000 < difference < 1000000 else False
+        critical_difference = True if -100000 < difference < 300000 else False
+        high_critical_difference = True if -100000 < difference < 100000 else False
         video_today = True if randint(1, 2) == 1 else False
+        war = True if -100000 < difference < 500000 else False
         influencer_help = 0
-
+        
         if high_critical_difference:
             youtuber2_additional_growth = trunc(youtuber2_growth / uniform(0.1, 0.6))
             youtuber2_subscriber_count += youtuber2_additional_growth
@@ -68,11 +69,6 @@ while True:
             youtuber2_additional_growth = trunc(youtuber2_growth / uniform(0.2, 1.5))
             youtuber2_subscriber_count += youtuber2_additional_growth
             youtuber2_growth += youtuber2_additional_growth
-        
-        if -100000 < difference < 1000000:
-            war = True
-        else:
-            war = False
 
         if war:
             if youtuber2_growth > youtuber1_growth * 3:
@@ -98,7 +94,7 @@ while True:
             youtuber2_subscriber_count -= youtuber2_additional_growth
             youtuber2_growth -= youtuber2_additional_growth
         elif len(growth_dictionary["youtuber2"]) > 1 and int(growth_dictionary["youtuber2"][-2]) < int(growth_dictionary["youtuber2"][-1]):
-            youtuber2_additional_growth = trunc(youtuber2_growth / 6)
+            youtuber2_additional_growth = trunc(youtuber2_growth / 4.5)
             youtuber2_subscriber_count += youtuber2_additional_growth
             youtuber2_growth += youtuber2_additional_growth
 
@@ -106,6 +102,8 @@ while True:
             youtuber2_additional_growth = randint(trunc(youtuber1_growth / 3), trunc(youtuber1_growth / 1.5))
             youtuber2_subscriber_count += youtuber2_additional_growth
             youtuber2_growth += youtuber2_additional_growth
+            
+            youtuber1_additional_growth = randint(trunc(youtuber2_growth / 4), trunc(youtuber2_growth / 2))
 
         growth_dictionary["youtuber1"].append(str(youtuber1_growth))
         growth_dictionary["youtuber2"].append(str(youtuber2_growth))

@@ -1,4 +1,4 @@
-from random import randint, uniform
+from random import randint
 from time import sleep
 
 
